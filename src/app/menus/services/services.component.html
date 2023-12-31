@@ -1,0 +1,46 @@
+<div class="parallax-container">
+    <div class="parallax">
+      <img src="../assets/images/servi.png" alt="">
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h3 class="center-align">Nos services</h3>
+        <p>
+            Notre entreprise, My VIP Boat, est spécialisée dans la création d'événements professionnels exceptionnels sur l'eau. 
+            Nous proposons une gamme complète de services pour aider nos clients à planifier et à réaliser des événements mémorables, 
+            en combinant notre expertise en matière de location de bateaux de luxe avec notre expérience en matière de planification d'événements.
+            Nos services incluent la planification d'événements sur mesure, la restauration et les boissons, 
+            la coordination de divertissements et d'activités, ainsi que des services de coordination d'événements pour vous aider à planifier 
+            votre événement de bout en bout.  
+        </p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h3 class="center-align blue-grey-text text-darken-4">Nos différents services</h3>
+        <div class="row">
+            <div class="col s12 l4" *ngFor="let service of listServices">
+                <div class="card">
+                    <div class="card-image">
+                        <img [src]="service.image" class="responsive-img materialboxed" alt="">
+                        <!-- <app-detail-bateau></app-detail-bateau> -->
+                    </div>
+                    <div class="card-action">
+                        <h6 class="blue-grey-text text-darken-4 center-align">{{ service.typeService }}</h6>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <p>
+            Contactez-nous <a routerLink="/acceuil">ici</a> pour discuter de la façon dont nous pouvons vous aider à planifier votre prochain événement professionnel sur l'eau.
+        </p>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<nav>
+  <div class="container">
+    <div class="nav-wrapper">
+      <a routerLink="/acceuil" class="brand-logo">myvipboat</a>
+      <a data-target="mobile-nav" class="sidenav-trigger white-text">
+        <i class="material-icons">menu</i>
+      </a>
+      <ul class="right hide-on-med-and-down">
+        <li *ngFor="let item of navItems">
+          <a [routerLink]="item.path" routerLinkActive="active" class="menu">
+            {{ item.name }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+<ul class="sidenav" id="mobile-nav" [ngClass]="{'sidenav-open': isMobileSidenavOpen}">
+  <li *ngFor="let item of navItems">
+    <a [routerLink]="item.path" routerLinkActive="active" class="sidenav-close"
+      (click)="toggleMobileSidenav()">
+      {{ item.name }} </a>
+  </li>
+</ul>

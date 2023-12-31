@@ -1,0 +1,156 @@
+<div class="parallax-container">
+    <div class="parallax">
+      <img src="../assets/images/event.png" alt="">
+    </div>
+</div>
+
+<!-- section Evénements -->
+<div class="section">
+    <div class="container">
+        <h3 class="center-align">Nos événements</h3>
+        <p>
+            Découvrez les événements professionnels inoubliables que nous avons organisés pour nos clients sur nos bateaux 
+            de luxe. Nous avons travaillé avec des entreprises de toutes tailles pour créer des expériences sur mesure qui 
+            reflètent leur marque et leurs objectifs.
+            Nous sommes fiers de proposer une large gamme d'événements professionnels, tels que des team buildings, 
+            des séminaires, des soirées de gala, des lancements de produits et bien plus encore.
+        </p>
+    </div>
+</div>
+
+<div class="event-section">
+    <div class="container">
+        <div class="row">
+            <div class="col s12 m6 l4" *ngFor="let event of listEvents">
+                <div class="card">
+                    <div class="card-image">
+                        <img [src]="event.image" class="responsive-img materialboxed" alt="">
+                    </div>
+                    <div class="card-action">
+                        <h5 class="center-align blue-grey-text text-darken-4">{{ event.typeEvent }}</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 
+
+<!-- formulaire de reservation -->
+<div class="section-re">
+    <div class="container">
+        <h4 class="center-align blue-grey-text text-darken-4">Reserver vos événements</h4>
+        <form [formGroup]="eventReserveForm" (ngSubmit)="onSubmit()" class="col s12 z-depth-3">
+            <div class="row">
+                <h3>Les informations sur le locataire</h3>
+                <div class="input-field col s12 m6 l6">
+                    <input id="name" type="text" formControlName="name">
+                    <label for="name">Nom complets du locataire: *</label>
+                    <small class="red-text" *ngIf="eventReserveForm.get('name')?.invalid && eventReserveForm.get('name')?.touched">Merci de renseigner votre nom et prénom</small>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="email" type="email" formControlName="email">
+                    <label for="email">Adresse e-mail: *</label>
+                    <!-- <span class="helper-text" data-error="wrong" data-success="right"></span> -->
+                    <!-- <small class="red-text" *ngIf="eventReserveForm.get('email')?.invalid && eventReserveForm.get('email')?.touched">Merci de renseigner votre adresse email</small> -->
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="adresse" type="text" formControlName="adresse">
+                    <label for="adresse">Adresse: *</label>
+                    <small class="red-text" *ngIf="eventReserveForm.get('adresse')?.invalid && eventReserveForm.get('adresse')?.touched">Merci de renseigner votre adresse</small>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="phone" type="tel" formControlName="phone">
+                    <label for="phone">Téléphone: *</label>
+                    <small class="red-text" *ngIf="eventReserveForm.get('phone')?.invalid && eventReserveForm.get('phone')?.touched">Merci de renseigner votre numéro de Téléphone</small>
+                </div>
+            </div>
+            <div class="row">
+                <h3>Les informations de l'événement</h3>
+                <div class="input-field col s12 m6 l6">
+                    <select id="eventType" formControlName="eventType">
+                        <option value="" selected>Choisissez votre Evénements *</option>
+                        <option value="mariage">Mariage</option>
+                        <option value="anniversaire">Anniversaire</option>
+                        <option value="conférence">Conférence</option>
+                        <option value="gala">Gala</option>
+                        <option value="team_building">Team Building</option>
+                        <option value="seminaire">Séminaire</option>
+                    </select>
+                    <small class="red-text" *ngIf="eventReserveForm.get('eventType')?.invalid && eventReserveForm.get('eventType')?.touched">Merci de choisir le type d'événement</small>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input type="date" id="eventDate" formControlName="eventDate">
+                    <label for="eventDate">Date d'événement: *</label>
+                    <small class="red-text" *ngIf="eventReserveForm.get('eventDate')?.invalid && eventReserveForm.get('eventDate')?.touched">Merci de renseigner votre numéro de Téléphone</small>
+                </div> 
+            </div>
+            <div class="row">
+                <div class="input-field col s12 m6 l6">
+                    <select id="typeBateau" formControlName="typeBateau">
+                        <option value="" selected>Choisissez votre type de Bateau *</option>
+                        <option value="yacth">Yacth</option>
+                        <option value="anniversaire">Mega yacth</option>
+                        <option value="conférence">Bateau à voile</option>
+                        <option value="gala">Peniche</option>
+                    </select>
+                    <small class="red-text" *ngIf="eventReserveForm.get('eventType')?.invalid && eventReserveForm.get('eventType')?.touched">Merci de choisir le type d'événement</small>
+                </div>
+                <div class="input-field col s12 m6 l6">
+                    <input id="numInvite" type="number" formControlName="numInvite">
+                    <label for="numInvite">nombre de personne: *</label>
+                    <small class="red-text" *ngIf="eventReserveForm.get('numInvite')?.invalid && eventReserveForm.get('numInvite')?.touched">Merci de renseigner le nombre de personnes</small>
+                </div>
+
+            </div>
+            <div class="row">
+                <button class="waves-effect waves-light btn amber darken-4 right" type="submit" [disabled]="eventReserveForm.invalid">
+                    Enrégistrer
+                </button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<!-- formulaire de temoignage -->
+
+<div class="section-testi">
+    <div class="container testi z-depth-3">
+        <div class="row">
+            <div class="col s12 l6 fot">
+                <h4 class="left-align blue-grey-text text-darken-4">Laissez-nous un commentaire</h4>
+                <p class="left-align">
+                    Si vous avez aimés nos services ou événements, veuillez nous laissez un 
+                    commentaire via ce formulaire ci-dessous. 
+                </p>
+            </div>
+            <div class="col s12 l6 verti-lign">
+                <div class="row right">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col s12 l6">
+                                <input id="nom" type="text">
+                                <label for="nom">Nom</label>
+                            </div>
+                            <div class="input-field col s12 l6">
+                                <input id="titre" type="text">
+                                <label for="titre">Titre</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <textarea id="textarea" class="materialize-textarea"></textarea>
+                                <label for="textarea">Commentaire</label>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <button class="waves-effect waves-light btn amber darken-4 right" 
+                            type="submit">
+                                Enrégistrer
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> 

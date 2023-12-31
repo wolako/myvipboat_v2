@@ -1,0 +1,145 @@
+<div class="parallax-container">
+    <div class="parallax">
+      <img src="../assets/images/bat4.png" alt="">
+    </div>
+    <div class="desc center-align">
+      <h2>Myvipboat</h2>
+      <p>Votre partenaire idéal pour des évènements professionnels inoubliables sur l'eau.</p>
+    </div>
+</div>
+  
+  <!-- presentation du site -->
+<div class="section-a">
+  <div class="container">
+    <div class="row">
+      <div class="col s12 l4">
+        <!-- <h3 class="center-align">Myvipboat</h3> -->
+        <h4 class="center-align blue-grey-text text-darken-4">Présentation</h4>
+        <p class="center-align">
+            Myvipboat est une entreprises évènementielle qui vous proposes des services de location de bateaux pour les entreprises de toutes tailles, 
+            en offrant des espaces personnalisables, équipés d'une technologie de pointe, d'une restauration 
+            de qualité et d'une équipe dédiée à votre événement.
+        </p>
+      </div>
+      <div class="degrad">
+        <div class="carousel col s12 l6 offset-l1">
+          <a class="carousel-item"><img src="../assets/images/resto1.png"></a>
+          <a class="carousel-item"><img src="../assets/images/gala1.png"></a>
+          <a class="carousel-item"><img src="../assets/images/sem1.png"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <!-- Nos activités -->
+<!-- <div class="section-s">
+    <div class="container">
+      <h4 class="white-text center-align pad">Nos activités</h4>
+        <div class="row">
+            <div class="col s12 m6 l4">
+                <div class="image card white center-align z-depth-3">
+                  <img src="../assets/images/svticon.png" alt="">
+                    <div class="content">
+                      <h4 class="blue-grey-text text-darken-4">Nos services</h4>
+                      <p>Vous voulez des services de qualité pour vos événements</p>
+                    </div>
+                    <div class="redir">
+                      <a routerLink="/services" class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Découvrir</a>
+                    </div>
+                </div>
+            </div> 
+            <div class="col s12 m6 l4">
+                <div class="image card white center-align z-depth-3">
+                  <img class="responsive-img" src="../assets/images/evticon.png" alt="">
+                  <div class="content">
+                    <h4 class="blue-grey-text text-darken-4">Nos événements</h4>
+                    <p>Vous cherchez des événements professionnels inoubliables sur l'eau ?</p>
+                  </div>
+                  <div class="redir">
+                    <a routerLink="/evenements" class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Découvrir</a>
+                  </div>
+                </div>
+            </div> 
+            <div class="col s12 m6 l4">
+                <div class="card white center-align z-depth-3">
+                  <img class="responsive-img" src="../assets/images/baticon.png" alt="">
+                  <div class="content">
+                    <h4 class="blue-grey-text text-darken-4">Nos bateaux</h4>
+                    <p>Vous cherchez des bateaux pour vos événements</p>
+                  </div>
+                  <div class="redir">
+                    <a routerLink="/bateaux" class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Découvrir</a>
+                  </div>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div> -->
+
+  <!-- services component -->
+<div class="background-video">
+  <video autoplay loop muted>
+    <source src="/assets/images/divertissement.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+    <div class="content">
+      <h3 class="text-darken-4">Nos services</h3>
+      <p>Vous désirez des services de qualité pour vos événements</p>
+    </div>
+    <div class="redir">
+      <a routerLink="/services" class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Découvrir</a>
+    </div>
+  </div>
+</div>
+<div class="background-video">
+  <video autoplay loop muted>
+    <source src="/assets/images/evenement.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+    <div class="content">
+      <h3 class="text-darken-4">Nos événements</h3>
+      <p>Vous cherchez des événements professionnels inoubliables sur l'eau ?</p>
+    </div>
+    <div class="redir">
+      <a routerLink="/evenements" class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Découvrir</a>
+    </div>
+  </div>
+</div>
+<div class="background-video">
+  <video autoplay loop muted>
+    <source src="/assets/images/bateaux.mp4" type="video/mp4">
+  </video>
+  <div class="container">
+    <div class="content">
+      <h3 class="text-darken-4">Nos bateaux</h3>
+      <p>Vous cherchez des bateaux pour vos événements professionnels et inoubliables</p>
+    </div>
+    <div class="redir">
+      <a routerLink="/bateaux" class="waves-effect waves-light btn"><i class="material-icons right">arrow_forward</i>Découvrir</a>
+    </div>
+  </div>
+</div>
+
+  <!-- Témoignages -->
+  <div class="container section">
+    <h4 class="center-align">Temoignages</h4>
+    <div class="row">
+      <div class="carousel">
+        <div class="carousel-item col s12 m6 l4" *ngFor="let tem of temoignages">
+          <div class="z-depth-2 white-text text-lighten-5 testi">
+            <div>
+              <i class="material-icons amber-text">format_quote</i>
+              <p>{{tem.commentaire}}</p>
+            </div>
+            <div class="testi-name">
+              <div class="divider"></div>
+              <h5>{{tem.noms}}</h5>
+              <h6>{{ tem.titre }}</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+<div class="divider"></div>

@@ -1,0 +1,45 @@
+nav{
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 100;
+    background-color: #fafaff;
+
+    .nav-wrapper{
+        .brand-logo{
+            text-transform: uppercase;
+            font-weight: 600;
+            color: #f4d7a3;
+            &:hover{
+                color: #cda274;
+            }
+        }
+        .right{
+            .menu{
+                color: #533c2b;
+                &:hover{
+                    color: #cda274;
+                    background-color: #f0e5d6;
+                }
+            }
+        }
+        .material-icons{
+            color: #cda274;
+        }
+    }
+}
+
+.sidenav{
+    padding: 30px;
+
+    background-color: #fafaff;
+
+    .sidenav-close{
+        font-size: 1.1rem;
+        &:hover{
+            color: #cda274;
+            background-color: #f0e5d6;
+        }
+    }
+    
+}

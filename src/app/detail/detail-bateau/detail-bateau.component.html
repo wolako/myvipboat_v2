@@ -1,0 +1,139 @@
+<div class="parallax-container">
+    <div class="parallax">
+      <img src="../assets/images/bato.png" alt="">
+    </div>
+</div>
+
+<div class="section">
+    <div class="container">
+        <h3 class="center-align blue-grey-text text-darken-4">Nos bateaux</h3>
+        <div class="row" *ngIf="bateau">
+            <app-galerie-img-bateau [image]="imagesBateau" [showCount]="true">
+            </app-galerie-img-bateau>
+            
+                <!-- <div class="col s12 m8 offset-m2">
+                    <div class="card">
+                        <div class="card-image">
+                            <img [src]="bateau.images[0]" alt="" class="responsive-img materialboxed">
+                        </div>
+                    </div>
+                </div> -->
+            
+        </div>
+        <div class="row" *ngIf="bateau">
+            <div class="col s12 m8 offset-m2">
+                <div class="card">
+                    <div class="row">
+                        <div class="card-content">
+                            <table class="bordered striped">
+                                <tbody>
+                                    <tr>
+                                        <td>Type de bateau</td>
+                                        <td><strong>{{ bateau.typeBateaux }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Marque du bateau</td>
+                                        <td><strong>{{ bateau.marque }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Nombre de personne à contenir</td>
+                                        <td><strong>{{ bateau.nbrPersonnes }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>prix par jour</td>
+                                        <td><strong>{{ bateau.prixJour }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Equipements</td>
+                                        <td><strong>{{ bateau.equipements }}</strong></td>
+                                    </tr>
+                                    <tr>
+                                        <td>autres information</td>
+                                        <td><strong>{{ bateau.infos }}</strong></td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="card-action">
+                            <button (click)="goBack()">Retour</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="reserva blue-grey darken-4">
+    <div class="container">
+        <div class="row">
+            <div class="cot-left col s12 l5">
+                <h4 class="white-text">Reserver votre bateau</h4>
+                <p class="white-text">
+                    Pour votre reservation de bateau veuiller remplisser ce formulaire
+                </p>
+            </div>
+            <div class="col s12 l6 offset-l1 z-depth-3">
+                <form [formGroup]="batForm" (ngSubmit)="onSubmit()" class="white-text">
+                    <div class="row">
+                        <div class="input-field col s12 m6 l4">
+                            <input type="text" id="nom" formControlName="nom">
+                            <label for="nom" class="white-text">Nom</label>
+                            <small class="red-text" *ngIf="batForm.get('nom')?.invalid && 
+                            batForm.get('nom')?.touched">Merci de renseigner votre nom</small>
+                        </div>
+                        <div class="input-field col s12 m6 l4">
+                            <input type="tel" id="phone" formControlName="phone">
+                            <label for="phone" class="white-text">Téléphone</label>
+                            <small class="red-text" *ngIf="batForm.get('phone')?.invalid && 
+                            batForm.get('phone')?.touched">Merci de renseigner votre numero de téléphone</small>
+                        </div>
+                        <div class="input-field col s12 m6 l4">
+                            <input type="email" id="email" formControlName="email">
+                            <label for="mail" class="white-text">Email</label>
+                            <small class="red-text" *ngIf="batForm.get('email')?.invalid && 
+                            batForm.get('email')?.touched">Merci de renseigner votre adresse email</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input type="date" id="dateDepart" formControlName="dateDepart">
+                            <label for="dateDepart" class="white-text">Date départ</label>
+                            <small class="red-text" *ngIf="batForm.get('dateDepart')?.invalid && 
+                            batForm.get('dateDepart')?.touched">Merci de renseigner la data de depart</small>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input type="date" id="dateArrivee" formControlName="dateArrivee">
+                            <label for="dateArrivee" class="white-text">Date Arrivée</label>
+                            <small class="red-text" *ngIf="batForm.get('dateArrivee')?.invalid && 
+                            batForm.get('dateArrivee')?.touched">Merci de renseigner la data de depart</small>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12 m6">
+                            <input type="text" id="lieuDepart" formControlName="lieuDepart">
+                            <label for="lieuDepart" class="white-text">Lieu de départ</label>
+                            <small class="red-text" *ngIf="batForm.get('lieuDepart')?.invalid && 
+                            batForm.get('lieuDepart')?.touched">Merci de renseigner le lieu de depart</small>
+                        </div>
+                        <div class="input-field col s12 m6">
+                            <input type="number" id="nbPerso" formControlName="nbPerso">
+                            <label for="nbPerso" class="white-text">Nombre de personnes</label>
+                            <small class="red-text" *ngIf="batForm.get('nbPerso')?.invalid && 
+                            batForm.get('nbPerso')?.touched">Merci de renseigner le nombre de personnes</small>
+                        </div>
+                    </div>
+                    <div class="input-field col s12">
+                        <input type="text" id="comment" formControlName="comment">
+                        <label for="comment" class="white-text">Comment</label> 
+                    </div>
+                    
+                    <button class="waves-effect waves-light btn amber darken-1 right" type="submit" name="action" [disabled]="batForm.invalid">Envoyer
+                        <i class="material-icons right">send</i>
+                    </button>
+                </form>
+            </div>
+        </div>
+        <hr class="blue-grey lighten-1">
+    </div>
+</div>
